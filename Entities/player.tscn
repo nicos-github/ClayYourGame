@@ -1,0 +1,72 @@
+[gd_scene load_steps=19 format=3 uid="uid://cioo1pojsqdsr"]
+
+[ext_resource type="Script" uid="uid://cs3hb11e3sftt" path="res://Entities/player.gd" id="1_gb1tc"]
+[ext_resource type="Texture2D" uid="uid://cgvtxu2p6gthf" path="res://Textures/Test/man_standing1.png" id="2_gb1tc"]
+[ext_resource type="Shader" uid="uid://3xn5jmy6ukk6" path="res://Scripts/greenscreen.gdshader" id="2_xd3k7"]
+[ext_resource type="Script" uid="uid://br4ppqycdcn5o" path="res://Entities/animation/animation_manager.gd" id="4_taegk"]
+[ext_resource type="Script" uid="uid://8c67ty7wsqhg" path="res://Entities/animation/res_animation.gd" id="5_prmdv"]
+[ext_resource type="Texture2D" uid="uid://bcqtv6qh2spog" path="res://Textures/Test/man_standing2.png" id="6_s1j76"]
+[ext_resource type="Texture2D" uid="uid://cojiml4lv1q5l" path="res://Textures/Test/man_walking1.png" id="7_k47j4"]
+[ext_resource type="Texture2D" uid="uid://dp7461hpaeduh" path="res://Textures/Test/man_walking2.png" id="8_klb6e"]
+[ext_resource type="Texture2D" uid="uid://bvr7gc0ojj7ma" path="res://Textures/Test/man_jumping.png" id="9_eyssl"]
+[ext_resource type="Texture2D" uid="uid://cx588abgl7g7h" path="res://Textures/Test/man_jumping2.png" id="10_pg4qw"]
+[ext_resource type="Texture2D" uid="uid://c51nqx83lafqc" path="res://Textures/Test/man_falling2.png" id="11_25cb4"]
+[ext_resource type="Texture2D" uid="uid://dcn85am5dlx0c" path="res://Textures/Test/man_falling1.png" id="12_uck12"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8a2b0"]
+radius = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_taegk"]
+shader = ExtResource("2_xd3k7")
+shader_parameter/chroma_key_color = Color(0.21176471, 0.654902, 0.18431373, 1)
+shader_parameter/pickup_range = 0.6030000286425
+shader_parameter/fade_amount = 0.238000011305
+
+[sub_resource type="Resource" id="Resource_6jj0l"]
+script = ExtResource("5_prmdv")
+sprites = Array[Texture2D]([ExtResource("2_gb1tc"), ExtResource("6_s1j76")])
+anim_speed = 0.5
+metadata/_custom_type_script = "uid://8c67ty7wsqhg"
+
+[sub_resource type="Resource" id="Resource_mat3c"]
+script = ExtResource("5_prmdv")
+sprites = Array[Texture2D]([ExtResource("7_k47j4"), ExtResource("8_klb6e")])
+metadata/_custom_type_script = "uid://8c67ty7wsqhg"
+
+[sub_resource type="Resource" id="Resource_ffc7a"]
+script = ExtResource("5_prmdv")
+sprites = Array[Texture2D]([ExtResource("9_eyssl"), ExtResource("10_pg4qw")])
+anim_speed = 0.5
+metadata/_custom_type_script = "uid://8c67ty7wsqhg"
+
+[sub_resource type="Resource" id="Resource_irn06"]
+script = ExtResource("5_prmdv")
+sprites = Array[Texture2D]([ExtResource("11_25cb4"), ExtResource("12_uck12")])
+anim_speed = 0.5
+metadata/_custom_type_script = "uid://8c67ty7wsqhg"
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_gb1tc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8a2b0")
+
+[node name="Sprites" type="Node2D" parent="."]
+position = Vector2(0, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+material = SubResource("ShaderMaterial_taegk")
+position = Vector2(0, -15)
+scale = Vector2(0.11785427, 0.119645745)
+texture = ExtResource("2_gb1tc")
+script = ExtResource("4_taegk")
+standing = SubResource("Resource_6jj0l")
+walking = SubResource("Resource_mat3c")
+jumping = SubResource("Resource_ffc7a")
+falling = SubResource("Resource_irn06")

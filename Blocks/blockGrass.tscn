@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://de2745t5nyaeh"]
+
+[ext_resource type="Texture2D" uid="uid://b5nnk43vll3as" path="res://Textures/Test/Image2.png" id="1_iy1ox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouyn1"]
+size = Vector2(64, 64)
+
+[node name="BlockTest" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ouyn1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 1.9999999)
+scale = Vector2(0.13250136, 0.07783765)
+texture = ExtResource("1_iy1ox")
