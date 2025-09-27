@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://cwlnjksw5fdas"]
+
+[ext_resource type="Script" uid="uid://cqeijbdeavruu" path="res://Levels/enemy.gd" id="1_vfta4"]
+[ext_resource type="Shader" uid="uid://3xn5jmy6ukk6" path="res://Scripts/greenscreen.gdshader" id="2_ytln8"]
+[ext_resource type="Texture2D" uid="uid://hbh570xv32bl" path="res://Textures/FinnClay/IMG_0055.png" id="3_h68p0"]
+[ext_resource type="Script" uid="uid://br4ppqycdcn5o" path="res://Entities/animation/animation_manager.gd" id="4_aw7kp"]
+[ext_resource type="Script" uid="uid://8c67ty7wsqhg" path="res://Entities/animation/res_animation.gd" id="5_y63uy"]
+[ext_resource type="Texture2D" uid="uid://bjoui2qra7r1k" path="res://Textures/FinnClay/IMG_0056.png" id="6_e4uyv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfta4"]
+size = Vector2(10, 2.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytln8"]
+size = Vector2(10, 9)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4f3ol"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dvejp"]
+shader = ExtResource("2_ytln8")
+shader_parameter/chroma_key_color = Color(0, 1, 0, 1)
+shader_parameter/pickup_range = 0.69200003287
+shader_parameter/fade_amount = 0.310000014725
+
+[sub_resource type="Resource" id="Resource_aw7kp"]
+script = ExtResource("5_y63uy")
+sprites = Array[Texture2D]([ExtResource("3_h68p0")])
+anim_speed = 0.5
+metadata/_custom_type_script = "uid://8c67ty7wsqhg"
+
+[sub_resource type="Resource" id="Resource_y63uy"]
+script = ExtResource("5_y63uy")
+sprites = Array[Texture2D]([ExtResource("3_h68p0"), ExtResource("6_e4uyv")])
+metadata/_custom_type_script = "uid://8c67ty7wsqhg"
+
+[node name="EnemyFinn" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_vfta4")
+SPEED = 50.0
+MOVE_DURATION = 2.0
+
+[node name="HitArea" type="Area2D" parent="."]
+position = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(0, 5.25)
+shape = SubResource("RectangleShape2D_vfta4")
+
+[node name="PlayerDamageArea" type="Area2D" parent="."]
+position = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDamageArea"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_ytln8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4f3ol")
+
+[node name="Sprites" type="Node2D" parent="."]
+position = Vector2(0, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+material = SubResource("ShaderMaterial_dvejp")
+position = Vector2(0.9999999, -14)
+scale = Vector2(0.023240479, 0.019882467)
+texture = ExtResource("3_h68p0")
+script = ExtResource("4_aw7kp")
+standing = SubResource("Resource_aw7kp")
+walking = SubResource("Resource_y63uy")
+
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_entered" from="PlayerDamageArea" to="." method="_on_player_damage_area_body_entered"]
