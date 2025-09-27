@@ -1,46 +1,54 @@
-[gd_scene load_steps=19 format=3 uid="uid://cioo1pojsqdsr"]
+[gd_scene load_steps=26 format=3 uid="uid://cioo1pojsqdsr"]
 
 [ext_resource type="Script" uid="uid://cs3hb11e3sftt" path="res://Entities/player.gd" id="1_gb1tc"]
-[ext_resource type="Texture2D" uid="uid://cgvtxu2p6gthf" path="res://Textures/Test/man_standing1.png" id="2_gb1tc"]
 [ext_resource type="Shader" uid="uid://3xn5jmy6ukk6" path="res://Scripts/greenscreen.gdshader" id="2_xd3k7"]
 [ext_resource type="Script" uid="uid://br4ppqycdcn5o" path="res://Entities/animation/animation_manager.gd" id="4_taegk"]
+[ext_resource type="Texture2D" uid="uid://cq2r7hm8gt8jy" path="res://Textures/Blueman/small/standing00001 Small.png" id="5_ffc7a"]
 [ext_resource type="Script" uid="uid://8c67ty7wsqhg" path="res://Entities/animation/res_animation.gd" id="5_prmdv"]
-[ext_resource type="Texture2D" uid="uid://bcqtv6qh2spog" path="res://Textures/Test/man_standing2.png" id="6_s1j76"]
-[ext_resource type="Texture2D" uid="uid://cojiml4lv1q5l" path="res://Textures/Test/man_walking1.png" id="7_k47j4"]
-[ext_resource type="Texture2D" uid="uid://dp7461hpaeduh" path="res://Textures/Test/man_walking2.png" id="8_klb6e"]
-[ext_resource type="Texture2D" uid="uid://bvr7gc0ojj7ma" path="res://Textures/Test/man_jumping.png" id="9_eyssl"]
-[ext_resource type="Texture2D" uid="uid://cx588abgl7g7h" path="res://Textures/Test/man_jumping2.png" id="10_pg4qw"]
-[ext_resource type="Texture2D" uid="uid://c51nqx83lafqc" path="res://Textures/Test/man_falling2.png" id="11_25cb4"]
-[ext_resource type="Texture2D" uid="uid://dcn85am5dlx0c" path="res://Textures/Test/man_falling1.png" id="12_uck12"]
+[ext_resource type="Texture2D" uid="uid://bd80g3vrpc4jq" path="res://Textures/Blueman/small/standing00002 Small.png" id="6_irn06"]
+[ext_resource type="Texture2D" uid="uid://h37efw2fv2rc" path="res://Textures/Blueman/small/standing00003 Small.png" id="7_v3fwn"]
+[ext_resource type="Texture2D" uid="uid://si4ppte3qfi4" path="res://Textures/Blueman/small/standing00004 Small.png" id="8_f8jwp"]
+[ext_resource type="Texture2D" uid="uid://bssbd5efijnc4" path="res://Textures/Blueman/small/walking00002 Small.png" id="9_x5h13"]
+[ext_resource type="Texture2D" uid="uid://ct7nadplh0wfb" path="res://Textures/Blueman/small/walking00003 Small.png" id="10_o0d5x"]
+[ext_resource type="Texture2D" uid="uid://el0g0gr1ej28" path="res://Textures/Blueman/small/walking00004 Small.png" id="11_5d2js"]
+[ext_resource type="Texture2D" uid="uid://cqi2dadpadkdh" path="res://Textures/Blueman/small/walking00005 Small.png" id="12_8qynv"]
+[ext_resource type="Texture2D" uid="uid://7ubqxrofwlhd" path="res://Textures/Blueman/small/walking00006 Small.png" id="13_kksrn"]
+[ext_resource type="Texture2D" uid="uid://brp67nr0njxgt" path="res://Textures/Blueman/small/walking00007 Small.png" id="14_jcafi"]
+[ext_resource type="Texture2D" uid="uid://d2a3kpf1fq6v7" path="res://Textures/Blueman/small/jumping00001 Small.png" id="15_qbc8u"]
+[ext_resource type="Texture2D" uid="uid://be7ymrc5cm4yf" path="res://Textures/Blueman/small/jumping00002 Small.png" id="16_738w2"]
+[ext_resource type="Texture2D" uid="uid://lljtsksijn3n" path="res://Textures/Blueman/small/falling00001 Small.png" id="17_b1m20"]
+[ext_resource type="Texture2D" uid="uid://b66f5vxi6h22f" path="res://Textures/Blueman/small/falling00002 Small.png" id="18_w8hnq"]
+[ext_resource type="Texture2D" uid="uid://dvd4fshranloa" path="res://Textures/Blueman/small/falling00003 Small.png" id="19_vknsg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8a2b0"]
-radius = 6.0
+radius = 7.0
+height = 36.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_taegk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffc7a"]
 shader = ExtResource("2_xd3k7")
-shader_parameter/chroma_key_color = Color(0.21176471, 0.654902, 0.18431373, 1)
-shader_parameter/pickup_range = 0.6030000286425
-shader_parameter/fade_amount = 0.238000011305
+shader_parameter/chroma_key_color = Color(0, 1, 0, 1)
+shader_parameter/pickup_range = 0.590000028025
+shader_parameter/fade_amount = 0.1
 
-[sub_resource type="Resource" id="Resource_6jj0l"]
+[sub_resource type="Resource" id="Resource_005q7"]
 script = ExtResource("5_prmdv")
-sprites = Array[Texture2D]([ExtResource("2_gb1tc"), ExtResource("6_s1j76")])
-anim_speed = 0.5
+sprites = Array[Texture2D]([ExtResource("5_ffc7a"), ExtResource("6_irn06"), ExtResource("7_v3fwn"), ExtResource("8_f8jwp")])
 metadata/_custom_type_script = "uid://8c67ty7wsqhg"
 
-[sub_resource type="Resource" id="Resource_mat3c"]
+[sub_resource type="Resource" id="Resource_3vikf"]
 script = ExtResource("5_prmdv")
-sprites = Array[Texture2D]([ExtResource("7_k47j4"), ExtResource("8_klb6e")])
+sprites = Array[Texture2D]([ExtResource("9_x5h13"), ExtResource("10_o0d5x"), ExtResource("11_5d2js"), ExtResource("12_8qynv"), ExtResource("13_kksrn"), ExtResource("14_jcafi")])
+anim_speed = 2.0
 metadata/_custom_type_script = "uid://8c67ty7wsqhg"
 
-[sub_resource type="Resource" id="Resource_ffc7a"]
+[sub_resource type="Resource" id="Resource_nbmgb"]
 script = ExtResource("5_prmdv")
-sprites = Array[Texture2D]([ExtResource("9_eyssl"), ExtResource("10_pg4qw")])
+sprites = Array[Texture2D]([ExtResource("15_qbc8u"), ExtResource("16_738w2")])
 metadata/_custom_type_script = "uid://8c67ty7wsqhg"
 
-[sub_resource type="Resource" id="Resource_irn06"]
+[sub_resource type="Resource" id="Resource_o8fg7"]
 script = ExtResource("5_prmdv")
-sprites = Array[Texture2D]([ExtResource("11_25cb4"), ExtResource("12_uck12")])
+sprites = Array[Texture2D]([ExtResource("17_b1m20"), ExtResource("18_w8hnq"), ExtResource("19_vknsg")])
 metadata/_custom_type_script = "uid://8c67ty7wsqhg"
 
 [node name="Player" type="CharacterBody2D"]
@@ -53,18 +61,20 @@ position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_8a2b0")
 
 [node name="Sprites" type="Node2D" parent="."]
 position = Vector2(0, 16)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites"]
-material = SubResource("ShaderMaterial_taegk")
-position = Vector2(0, -15)
-scale = Vector2(0.11785427, 0.119645745)
-texture = ExtResource("2_gb1tc")
+material = SubResource("ShaderMaterial_ffc7a")
+position = Vector2(1, -19)
+rotation = 0.00860098
+scale = Vector2(0.12983437, 0.13180795)
+texture = ExtResource("19_vknsg")
 script = ExtResource("4_taegk")
-standing = SubResource("Resource_6jj0l")
-walking = SubResource("Resource_mat3c")
-jumping = SubResource("Resource_ffc7a")
-falling = SubResource("Resource_irn06")
+standing = SubResource("Resource_005q7")
+walking = SubResource("Resource_3vikf")
+jumping = SubResource("Resource_nbmgb")
+falling = SubResource("Resource_o8fg7")

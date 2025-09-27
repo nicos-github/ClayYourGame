@@ -12,7 +12,7 @@ void fragment() {
 	// the lesser the distance more likely the colors are
 	float distance = length(color.rgb - chroma_key_color);
 	// If the distance is within the pickup range, discard the pixel
-	if (distance <= pickup_range) {
+	if (distance <= pickup_range || color.a < 0.5) {
 		discard;
 	}
 	// Calculate the fade factor based on the pickup range and fade amount
