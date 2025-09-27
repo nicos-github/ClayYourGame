@@ -27,46 +27,59 @@ centered = false
 
 [node name="BlockTest" parent="Blocks" instance=ExtResource("4_vx8ih")]
 position = Vector2(262, 341)
+scale = Vector2(0.2, 0.2)
 
 [node name="BlockTest2" parent="Blocks" instance=ExtResource("5_ugh17")]
 position = Vector2(333, 364)
+scale = Vector2(0.2, 0.2)
 
 [node name="BlockTest3" parent="Blocks" instance=ExtResource("6_eabcg")]
 position = Vector2(170, 379)
+scale = Vector2(0.2, 0.2)
 
 [node name="BlockTest4" parent="Blocks" instance=ExtResource("6_eabcg")]
 position = Vector2(226, 411)
-scale = Vector2(1.9719286, 2.2891018)
+scale = Vector2(0.2, 0.2)
 
 [node name="BlockTest5" parent="Blocks" instance=ExtResource("7_dvejp")]
 position = Vector2(215, 369)
+scale = Vector2(0.2, 0.2)
 
 [node name="BlockTest6" parent="Blocks" instance=ExtResource("8_3hgmi")]
 position = Vector2(380, 424)
-scale = Vector2(3.6642764, 3.7095978)
+scale = Vector2(0.2, 0.2)
 
 [node name="BlockTest7" parent="Blocks" instance=ExtResource("8_3hgmi")]
 position = Vector2(460.99997, 440)
 rotation = 1.0415341
-scale = Vector2(3.6642764, 3.709598)
+scale = Vector2(0.2, 0.2)
+
+[node name="BlockTest12" parent="Blocks" instance=ExtResource("8_3hgmi")]
+position = Vector2(646, 458)
+rotation = 0.06335771
+scale = Vector2(0.2, 0.2)
 
 [node name="BlockTest9" parent="Blocks" instance=ExtResource("9_xsqsu")]
 position = Vector2(431, 331)
+scale = Vector2(0.2, 0.2)
 
 [node name="BlockTest8" parent="Blocks" instance=ExtResource("10_vmy0u")]
 position = Vector2(346, 348)
+scale = Vector2(0.2, 0.2)
 
 [node name="BlockTest10" parent="Blocks" instance=ExtResource("5_ugh17")]
 position = Vector2(430, 306)
+scale = Vector2(0.2, 0.2)
 
 [node name="BlockTest11" parent="Blocks" instance=ExtResource("5_ugh17")]
 position = Vector2(533, 341)
+scale = Vector2(0.2, 0.2)
 
 [node name="Enemy" parent="." instance=ExtResource("3_wav5q")]
-position = Vector2(427, 273)
+position = Vector2(428, 246)
 
 [node name="Enemy2" parent="." instance=ExtResource("3_wav5q")]
-position = Vector2(341, 314)
+position = Vector2(341, 280)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_xto7t")]
 position = Vector2(257, 315)
