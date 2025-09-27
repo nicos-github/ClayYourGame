@@ -22,7 +22,9 @@ var coyote_time = 0.0
 func _ready() -> void:
 	pass
 	
+
 func _physics_process(delta: float) -> void:
+	
 	
 	# reset if falling down
 	if global_position.y > 1500:
@@ -87,22 +89,29 @@ func _physics_process(delta: float) -> void:
 	process_animations(direction)
 
 func process_animations(direction: float):
+	
+	var target_animation: Anim = null
+	
 	# face directions
 	if sign(direction) != 0:
 		SpriteAnim.set_direction(sign(direction))
 	
 	# standing / walking
 	if abs(velocity.x) > 1.0:
-		SpriteAnim.set_anim(SpriteAnim.walking)
+		target_animation = SpriteAnim.walking
 	else:
-		SpriteAnim.set_anim(SpriteAnim.standing)
+		target_animation = SpriteAnim.standing
 		
 	# jumping
 	if !is_on_floor():
 		if velocity.y < 0:
-			SpriteAnim.set_anim(SpriteAnim.jumping)
+			target_animation = SpriteAnim.jumping
 		else:
-			SpriteAnim.set_anim(SpriteAnim.falling)
+			target_animation = SpriteAnim.falling
+	
+	# apply animation
+	if target_animation != null:
+		SpriteAnim.set_anim(target_animation)
 	
 
 func play_jump_squash_stretch():

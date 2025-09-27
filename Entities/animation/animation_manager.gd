@@ -41,11 +41,14 @@ func _physics_process(delta: float) -> void:
 	if cur_frame != last_frame:
 		self.texture = current_anim.sprites[cur_frame]
 	
+		#print(cur_frame)
+	
 func set_anim(anim: Anim):
 	if anim == current_anim:
 		return
 	
 	current_anim = anim
+	print("set new anim " + str(anim))
 	cur_frame = -1 # force frame update on anim so it switches immediately
 	tick = 999
 

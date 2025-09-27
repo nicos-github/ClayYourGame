@@ -36,13 +36,11 @@ metadata/_custom_type_script = "uid://8c67ty7wsqhg"
 [sub_resource type="Resource" id="Resource_ffc7a"]
 script = ExtResource("5_prmdv")
 sprites = Array[Texture2D]([ExtResource("9_eyssl"), ExtResource("10_pg4qw")])
-anim_speed = 0.5
 metadata/_custom_type_script = "uid://8c67ty7wsqhg"
 
 [sub_resource type="Resource" id="Resource_irn06"]
 script = ExtResource("5_prmdv")
 sprites = Array[Texture2D]([ExtResource("11_25cb4"), ExtResource("12_uck12")])
-anim_speed = 0.5
 metadata/_custom_type_script = "uid://8c67ty7wsqhg"
 
 [node name="Player" type="CharacterBody2D"]
