@@ -1,0 +1,73 @@
+[gd_scene load_steps=15 format=3 uid="uid://dh31kqogn3tcq"]
+
+[ext_resource type="Script" uid="uid://cqeijbdeavruu" path="res://Levels/enemy.gd" id="1_adlvn"]
+[ext_resource type="Shader" uid="uid://3xn5jmy6ukk6" path="res://Scripts/greenscreen.gdshader" id="2_uwg5a"]
+[ext_resource type="Texture2D" uid="uid://ckmcennwancl0" path="res://Textures/KaiClay/walking00001.png" id="3_leesi"]
+[ext_resource type="Script" uid="uid://br4ppqycdcn5o" path="res://Entities/animation/animation_manager.gd" id="4_xllai"]
+[ext_resource type="Script" uid="uid://8c67ty7wsqhg" path="res://Entities/animation/res_animation.gd" id="5_2ubkw"]
+[ext_resource type="Texture2D" uid="uid://cfyu6wn7tp31p" path="res://Textures/KaiClay/walking00002.png" id="6_4ak3v"]
+[ext_resource type="Texture2D" uid="uid://bb3ykbrtjevxx" path="res://Textures/KaiClay/walking00003.png" id="7_vxpyy"]
+[ext_resource type="Texture2D" uid="uid://4v16dkf2s44w" path="res://Textures/KaiClay/walking00004.png" id="8_2k43f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xto7t"]
+size = Vector2(22, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhyyw"]
+size = Vector2(22, 25)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8a2b0"]
+radius = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dvejp"]
+shader = ExtResource("2_uwg5a")
+shader_parameter/chroma_key_color = Color(0, 1, 0, 1)
+shader_parameter/pickup_range = 0.69200003287
+shader_parameter/fade_amount = 0.310000014725
+
+[sub_resource type="Resource" id="Resource_jjxhf"]
+script = ExtResource("5_2ubkw")
+sprites = Array[Texture2D]([ExtResource("3_leesi")])
+anim_speed = 0.5
+metadata/_custom_type_script = "uid://8c67ty7wsqhg"
+
+[sub_resource type="Resource" id="Resource_lybtp"]
+script = ExtResource("5_2ubkw")
+sprites = Array[Texture2D]([ExtResource("3_leesi"), ExtResource("6_4ak3v"), ExtResource("7_vxpyy"), ExtResource("8_2k43f")])
+metadata/_custom_type_script = "uid://8c67ty7wsqhg"
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_adlvn")
+SPEED = 20.0
+MOVE_DURATION = 5.0
+
+[node name="HitArea" type="Area2D" parent="."]
+position = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_xto7t")
+
+[node name="PlayerDamageArea" type="Area2D" parent="."]
+position = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDamageArea"]
+position = Vector2(0, 13.5)
+shape = SubResource("RectangleShape2D_uhyyw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8a2b0")
+
+[node name="Sprites" type="Node2D" parent="."]
+position = Vector2(0, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+material = SubResource("ShaderMaterial_dvejp")
+position = Vector2(-1.9999999, -14)
+scale = Vector2(0.023240479, 0.019882467)
+texture = ExtResource("3_leesi")
+script = ExtResource("4_xllai")
+standing = SubResource("Resource_jjxhf")
+walking = SubResource("Resource_lybtp")
+
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_entered" from="PlayerDamageArea" to="." method="_on_player_damage_area_body_entered"]

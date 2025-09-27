@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1y1c3r7waa5k"]
+
+[ext_resource type="Texture2D" uid="uid://cb5nvyk4b10sc" path="res://Textures/KaiClay/IMG_0063.png" id="1_d4liq"]
+
+[node name="BlockTest" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-9, 2)
+scale = Vector2(0.13250136, 0.07783765)
+polygon = PackedVector2Array(-102, -117.3, -102, -115.2, -138.6, -106, -142.4, -106, -156.4, -95, -158, -95, -208, -28, -210, -28, -220, 5, -221.8, 5, -224, 57.899994, -224, 66.20001, -216, 78.100006, -216, 81.70001, -207, 90.600006, -207, 92.5, -154, 118.5, -154, 121.100006, 44.100006, 116, 46.700012, 116, 68, 131, 68, 133, 97.399994, 142, 108.399994, 142, 175, 89.399994, 185.70001, 91, 187.79999, 91, 203, 101.899994, 203, 106.20001, 218.70001, 102, 222.09998, 102, 255.09998, 56, 257.7, 56, 260.7, 16, 262.59998, 16, 258, -17.5, 258, -23, 247, -44, 247, -47.800003, 223, -68.8, 223, -71.3, 168, -81.3, 168, -82.8, 98.100006, -86, 75.399994, -86, 31, -99, 31, -100.9, -22, -102, -32.700012, -102, -44, -110.1, -44, -112.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9, 2)
+scale = Vector2(0.13250136, 0.07783765)
+texture = ExtResource("1_d4liq")

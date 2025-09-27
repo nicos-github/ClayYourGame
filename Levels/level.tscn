@@ -1,45 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://cij61evl5lq5q"]
+[gd_scene load_steps=11 format=3 uid="uid://cij61evl5lq5q"]
 
-[ext_resource type="Script" uid="uid://cqeijbdeavruu" path="res://Levels/enemy.gd" id="2_uhyyw"]
 [ext_resource type="PackedScene" uid="uid://cioo1pojsqdsr" path="res://Entities/player.tscn" id="2_xto7t"]
-[ext_resource type="Shader" uid="uid://3xn5jmy6ukk6" path="res://Scripts/greenscreen.gdshader" id="4_eabcg"]
-[ext_resource type="PackedScene" uid="uid://de2745t5nyaeh" path="res://Blocks/blockGrass.tscn" id="4_xto7t"]
-[ext_resource type="Script" uid="uid://br4ppqycdcn5o" path="res://Entities/animation/animation_manager.gd" id="5_8a2b0"]
+[ext_resource type="PackedScene" uid="uid://dh31kqogn3tcq" path="res://Entities/enemy.tscn" id="3_wav5q"]
+[ext_resource type="PackedScene" uid="uid://dacvcgeeb1gul" path="res://Blocks/BlockFelsenBlau2.tscn" id="4_vx8ih"]
+[ext_resource type="PackedScene" uid="uid://b1y1c3r7waa5k" path="res://Blocks/BlockFelsenBlau3.tscn" id="5_ugh17"]
 [ext_resource type="Texture2D" uid="uid://cymy4qtdjovri" path="res://Textures/claybg.jpg" id="5_uhyyw"]
-[ext_resource type="Script" uid="uid://8c67ty7wsqhg" path="res://Entities/animation/res_animation.gd" id="6_eabcg"]
-[ext_resource type="Texture2D" uid="uid://djrpfhshnxu50" path="res://Textures/Test/Image.png" id="6_t80w2"]
-[ext_resource type="Texture2D" uid="uid://cgvtxu2p6gthf" path="res://Textures/Test/man_standing1.png" id="7_dvejp"]
-[ext_resource type="Texture2D" uid="uid://bcqtv6qh2spog" path="res://Textures/Test/man_standing2.png" id="8_3hgmi"]
-[ext_resource type="Texture2D" uid="uid://cojiml4lv1q5l" path="res://Textures/Test/man_walking1.png" id="9_xsqsu"]
-[ext_resource type="Texture2D" uid="uid://dp7461hpaeduh" path="res://Textures/Test/man_walking2.png" id="10_vmy0u"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xto7t"]
-size = Vector2(22, 7)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhyyw"]
-size = Vector2(22, 25)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8a2b0"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dvejp"]
-shader = ExtResource("4_eabcg")
-shader_parameter/chroma_key_color = Color(0, 1, 0, 1)
-shader_parameter/pickup_range = 0.69200003287
-shader_parameter/fade_amount = 0.310000014725
-
-[sub_resource type="Resource" id="Resource_jjxhf"]
-script = ExtResource("6_eabcg")
-sprites = Array[Texture2D]([ExtResource("7_dvejp"), ExtResource("8_3hgmi")])
-anim_speed = 0.5
-metadata/_custom_type_script = "uid://8c67ty7wsqhg"
-
-[sub_resource type="Resource" id="Resource_lybtp"]
-script = ExtResource("6_eabcg")
-sprites = Array[Texture2D]([ExtResource("9_xsqsu"), ExtResource("10_vmy0u")])
-metadata/_custom_type_script = "uid://8c67ty7wsqhg"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8a2b0"]
-size = Vector2(58, 143.47827)
+[ext_resource type="PackedScene" uid="uid://2h3tykd4imw7" path="res://Blocks/BlockFelsenBlau.tscn" id="6_eabcg"]
+[ext_resource type="PackedScene" uid="uid://cv01173g6l75d" path="res://Blocks/BlockFelsenRot.tscn" id="7_dvejp"]
+[ext_resource type="PackedScene" uid="uid://djwrjl2jjyqk8" path="res://Blocks/BlockFelsenRundBlau.tscn" id="8_3hgmi"]
+[ext_resource type="PackedScene" uid="uid://db5jryklipu8a" path="res://Blocks/BlockSäule1.tscn" id="9_xsqsu"]
+[ext_resource type="PackedScene" uid="uid://d32smrbkjsxni" path="res://Blocks/BlockSäuleGrün.tscn" id="10_vmy0u"]
 
 [node name="Level" type="Node2D"]
 
@@ -53,103 +23,50 @@ position = Vector2(386, 194)
 texture = ExtResource("5_uhyyw")
 centered = false
 
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="BlockTest" parent="Blocks" instance=ExtResource("4_vx8ih")]
+position = Vector2(262, 341)
+
+[node name="BlockTest2" parent="Blocks" instance=ExtResource("5_ugh17")]
+position = Vector2(333, 364)
+
+[node name="BlockTest3" parent="Blocks" instance=ExtResource("6_eabcg")]
+position = Vector2(170, 379)
+
+[node name="BlockTest4" parent="Blocks" instance=ExtResource("6_eabcg")]
+position = Vector2(226, 411)
+scale = Vector2(1.9719286, 2.2891018)
+
+[node name="BlockTest5" parent="Blocks" instance=ExtResource("7_dvejp")]
+position = Vector2(215, 369)
+
+[node name="BlockTest6" parent="Blocks" instance=ExtResource("8_3hgmi")]
+position = Vector2(380, 424)
+scale = Vector2(3.6642764, 3.7095978)
+
+[node name="BlockTest7" parent="Blocks" instance=ExtResource("8_3hgmi")]
+position = Vector2(460.99997, 440)
+rotation = 1.0415341
+scale = Vector2(3.6642764, 3.709598)
+
+[node name="BlockTest9" parent="Blocks" instance=ExtResource("9_xsqsu")]
+position = Vector2(431, 331)
+
+[node name="BlockTest8" parent="Blocks" instance=ExtResource("10_vmy0u")]
+position = Vector2(346, 348)
+
+[node name="BlockTest10" parent="Blocks" instance=ExtResource("5_ugh17")]
+position = Vector2(430, 306)
+
+[node name="BlockTest11" parent="Blocks" instance=ExtResource("5_ugh17")]
+position = Vector2(533, 341)
+
+[node name="Enemy" parent="." instance=ExtResource("3_wav5q")]
+position = Vector2(427, 273)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_wav5q")]
+position = Vector2(341, 314)
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_xto7t")]
-position = Vector2(537, 320)
-
-[node name="Enemy" type="CharacterBody2D" parent="." groups=["Enemy"]]
-position = Vector2(764, 370)
-script = ExtResource("2_uhyyw")
-SPEED = 20.0
-MOVE_DURATION = 5.0
-
-[node name="HitArea" type="Area2D" parent="Enemy"]
-position = Vector2(0, -11)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/HitArea"]
-position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_xto7t")
-
-[node name="PlayerDamageArea" type="Area2D" parent="Enemy"]
-position = Vector2(0, -11)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/PlayerDamageArea"]
-position = Vector2(0, 13.5)
-shape = SubResource("RectangleShape2D_uhyyw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("CapsuleShape2D_8a2b0")
-
-[node name="Sprites" type="Node2D" parent="Enemy"]
-position = Vector2(0, 16)
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy/Sprites"]
-material = SubResource("ShaderMaterial_dvejp")
-position = Vector2(0, -14)
-scale = Vector2(0.2, 0.1)
-texture = ExtResource("7_dvejp")
-script = ExtResource("5_8a2b0")
-standing = SubResource("Resource_jjxhf")
-walking = SubResource("Resource_lybtp")
-
-[node name="BlockTest" parent="." instance=ExtResource("4_xto7t")]
-position = Vector2(521, 404)
-
-[node name="BlockTest2" parent="." instance=ExtResource("4_xto7t")]
-position = Vector2(582, 430)
-
-[node name="BlockTest3" parent="." instance=ExtResource("4_xto7t")]
-position = Vector2(645, 421)
-
-[node name="BlockTest4" parent="." instance=ExtResource("4_xto7t")]
-position = Vector2(608, 327)
-scale = Vector2(1, 0.3600006)
-
-[node name="BlockTest5" parent="." instance=ExtResource("4_xto7t")]
-position = Vector2(703, 436)
-scale = Vector2(1, 0.3600006)
-
-[node name="BlockTest6" parent="." instance=ExtResource("4_xto7t")]
-position = Vector2(764, 436)
-scale = Vector2(1, 0.3600006)
-
-[node name="BlockTest7" parent="." instance=ExtResource("4_xto7t")]
-position = Vector2(715, 314)
-scale = Vector2(1, 0.3600006)
-
-[node name="BlockTest8" parent="." instance=ExtResource("4_xto7t")]
-position = Vector2(967, 314)
-scale = Vector2(1, 0.3600006)
-
-[node name="BlockCola2" type="Node2D" parent="."]
-position = Vector2(876, 421)
-rotation = 0.14088726
-scale = Vector2(1, 0.92)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="BlockCola2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockCola2/StaticBody2D"]
-position = Vector2(1, -4.347828)
-shape = SubResource("RectangleShape2D_8a2b0")
-
-[node name="Sprite2D" type="Sprite2D" parent="BlockCola2"]
-position = Vector2(7, 0)
-scale = Vector2(0.16241074, 0.16241074)
-texture = ExtResource("6_t80w2")
-
-[node name="BlockCola" type="Node2D" parent="."]
-position = Vector2(828, 448)
-scale = Vector2(1, 0.92)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="BlockCola"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockCola/StaticBody2D"]
-position = Vector2(1, -4.347828)
-shape = SubResource("RectangleShape2D_8a2b0")
-
-[node name="Sprite2D" type="Sprite2D" parent="BlockCola"]
-position = Vector2(7, 0)
-scale = Vector2(0.16241074, 0.16241074)
-texture = ExtResource("6_t80w2")
-
-[connection signal="body_entered" from="Enemy/HitArea" to="Enemy" method="_on_hit_area_body_entered"]
-[connection signal="body_entered" from="Enemy/PlayerDamageArea" to="Enemy" method="_on_player_damage_area_body_entered"]
+position = Vector2(257, 315)
